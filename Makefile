@@ -6,7 +6,7 @@ OBJS=$(SRCS:.c=.o)
 all: libft.a
 
 libft.a: $(OBJS)
-	ar r libft.a  $(OBJS)
+	ar rcs libft.a  $(OBJS)
 
 $(OBJS): $(SRCS) libft.h
 	gcc -c -Wall -Werror -Wextra $(SRCS) -I.
