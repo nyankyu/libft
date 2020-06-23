@@ -1,22 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
+/*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nohtou <nohtou@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/06/23 01:30:38 by nohtou            #+#    #+#             */
-/*   Updated: 2020/06/23 17:08:11 by nohtou           ###   ########.fr       */
+/*   Created: 2020/06/23 14:30:26 by nohtou            #+#    #+#             */
+/*   Updated: 2020/06/23 14:37:25 by nohtou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFT_H
-# define LIBFT_H
-#include <stddef.h>
+#include "libft.h"
 
-void	*ft_memset(void *b, int c, size_t len);
-void	ft_bzero(void *s, size_t n);
-void	*ft_memcpy(void *dst, const void *src, size_t n);
-void	*ft_memccpy(void *dst, const void *src, int c, size_t n);
+void	ft_bzero(void *s, size_t n)
+{
+	unsigned char *p;
 
-#endif
+	p = s;
+	while (n--)
+		*p++ = 0;
+}
