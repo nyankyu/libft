@@ -6,7 +6,7 @@
 /*   By: nohtou <nohtou@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/23 18:01:41 by nohtou            #+#    #+#             */
-/*   Updated: 2020/06/23 19:57:59 by nohtou           ###   ########.fr       */
+/*   Updated: 2020/06/23 20:01:31 by nohtou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,8 @@ void	*ft_memmove(void *dst, const void *src, size_t len)
 	re = dst > src;
 	d = re ? dst + len - 1 : dst;
 	s = re ? src + len - 1 : src;
-	while (len--) {
+	while (len--)
+	{
 		if (re)
 			*d-- = *s--;
 		else

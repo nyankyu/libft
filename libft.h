@@ -6,13 +6,14 @@
 /*   By: nohtou <nohtou@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/23 01:30:38 by nohtou            #+#    #+#             */
-/*   Updated: 2020/06/23 19:49:58 by nohtou           ###   ########.fr       */
+/*   Updated: 2020/06/23 20:02:36 by nohtou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
-#include <stddef.h>
+
+# include <stddef.h>
 
 void	*ft_memset(void *b, int c, size_t len);
 void	ft_bzero(void *s, size_t n);

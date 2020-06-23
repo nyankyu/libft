@@ -6,7 +6,7 @@
 /*   By: nohtou <nohtou@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/23 14:39:54 by nohtou            #+#    #+#             */
-/*   Updated: 2020/06/23 17:02:46 by nohtou           ###   ########.fr       */
+/*   Updated: 2020/06/23 20:04:55 by nohtou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 void	*ft_memcpy(void *dst, const void *src, size_t n)
 {
-	unsigned char *d;
-	const unsigned char *s;
+	unsigned char		*d;
+	const unsigned char	*s;
 
 	if (!dst && !src && n)
 		return (dst);
