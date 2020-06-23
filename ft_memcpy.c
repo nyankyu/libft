@@ -6,11 +6,11 @@
 /*   By: nohtou <nohtou@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/23 14:39:54 by nohtou            #+#    #+#             */
-/*   Updated: 2020/06/23 20:04:55 by nohtou           ###   ########.fr       */
+/*   Updated: 2020/06/23 21:06:54 by nohtou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <stddef.h>
 
 void	*ft_memcpy(void *dst, const void *src, size_t n)
 {

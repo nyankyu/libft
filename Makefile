@@ -7,7 +7,7 @@ NAME=libft.a
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	ar rcs libft.a $?
+	ar rcs $(NAME) $?
 
 .c.o:
 	gcc -Wall -Werror -Wextra -c $<
@@ -16,6 +16,6 @@ clean:
 	rm -f $(OBJS)
 
 fclean: clean
-	rm -f libft.a
+	rm -f $(NAME)
 
 re: fclean all
