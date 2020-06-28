@@ -6,12 +6,11 @@
 /*   By: nohtou <nohtou@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/24 20:47:10 by nohtou            #+#    #+#             */
-/*   Updated: 2020/06/24 22:00:26 by nohtou           ###   ########.fr       */
+/*   Updated: 2020/06/27 14:18:33 by nohtou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stddef.h>
-#include "libft.h"
 
 size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 {

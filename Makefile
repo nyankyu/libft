@@ -22,7 +22,8 @@ ft_strnstr.c \
 ft_strrchr.c \
 ft_tolower.c \
 ft_toupper.c \
-ft_calloc.c
+ft_calloc.c \
+ft_strdup.c
 OBJS=$(SRCS:.c=.o)
 
 .PHONY: all clean fclean re
@@ -33,7 +34,7 @@ $(NAME): $(OBJS)
 	ar rcs $@ $?
 
 .c.o:
-	gcc -Wall -Werror -Wextra -c $<
+	gcc -Wall -Werror -Wextra -c $?
 
 clean:
 	rm -f $(OBJS)
