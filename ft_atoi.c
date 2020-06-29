@@ -6,7 +6,7 @@
 /*   By: nohtou <nohtou@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/26 13:18:37 by nohtou            #+#    #+#             */
-/*   Updated: 2020/06/28 04:04:42 by nohtou           ###   ########.fr       */
+/*   Updated: 2020/06/28 10:19:36 by nohtou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,10 +103,10 @@ int			ft_atoi(const char *str)
 		str++;
 	if (!neg && overflow(str))
 	{
-		return (-1);
+		return ((int)LONG_MAX);
 	}
 	if (neg && underflow(str))
-		return (0);
+		return ((int)LONG_MIN);
 	while (is_num(*str))
 	{
 		ret *= 10;
