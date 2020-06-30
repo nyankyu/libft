@@ -6,7 +6,7 @@
 /*   By: nohtou <nohtou@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/29 23:14:11 by nohtou            #+#    #+#             */
-/*   Updated: 2020/06/29 23:50:16 by nohtou           ###   ########.fr       */
+/*   Updated: 2020/07/01 01:03:49 by nohtou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ static int	is_set(char c, const char *set)
 char		*ft_strtrim(char const *s1, char const *set)
 {
 	const char	*start;
-	char	*trimed;
+	char		*trimed;
 
 	if (s1 == NULL || set == NULL)
 		return (NULL);

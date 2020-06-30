@@ -6,7 +6,7 @@
 /*   By: nohtou <nohtou@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/26 13:18:37 by nohtou            #+#    #+#             */
-/*   Updated: 2020/06/28 10:19:36 by nohtou           ###   ########.fr       */
+/*   Updated: 2020/07/01 01:20:09 by nohtou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ static int	underflow(const char *str)
 	char	*p;
 	char	*long_min;
 	size_t	len;
- 
+
 	p = (char *)str;
 	long_min = "2147483648";
 	len = 0;
@@ -58,7 +58,7 @@ static int	overflow(const char *str)
 	char	*p;
 	char	*long_max;
 	size_t	len;
- 
+
 	p = (char *)str;
 	long_max = "2147483647";
 	len = 0;

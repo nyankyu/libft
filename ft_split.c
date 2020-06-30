@@ -6,42 +6,48 @@
 /*   By: nohtou <nohtou@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/30 00:01:20 by nohtou            #+#    #+#             */
-/*   Updated: 2020/06/30 02:20:15 by nohtou           ###   ########.fr       */
+/*   Updated: 2020/07/01 01:02:23 by nohtou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
-#include <stdio.h>
-#include <string.h>
+#include "libft.h"
 
-static int	get_substr_count(const char *s, char c)
+static int	is_delimiter(char c, char delimiter)
+{
+	return (c == delimiter || c == '\0');
+}
+
+static int	get_substr_count(const char *str, char c)
 {
 	int	count;
 
-	count = 1;
-	while (*s)
-		if (*s++ == c)
+	count = 0;
+	while (*str++)
+		if (is_delimiter(*str, c) &&
+				!is_delimiter(*(str - 1), c))
 			count++;
 	return (count);
 }
 
-static char	*cut_str(const char **s, char c)
+static char	*cut_substr(const char **str_ptr, char c)
 {
-	size_t	len;
+	char	*start;
 	char	*sub_str;
 
-	len = 0;
-	while (*(*s + len) != c)
-		len++;
-	sub_str = malloc(len + 1);
+	while (is_delimiter(**str_ptr, c))
+		(*str_ptr)++;
+	start = (char *)*str_ptr;
+	while (!is_delimiter(**str_ptr, c))
+		(*str_ptr)++;
+	sub_str = malloc(*str_ptr - start + 1);
 	if (sub_str == NULL)
 		return (NULL);
-	strlcpy(sub_str, *s, len + 1);
-	*s += len + 1;
+	ft_strlcpy(sub_str, start, *str_ptr - start + 1);
 	return (sub_str);
 }
 
-char	**ft_split(char const *s, char c)
+char		**ft_split(char const *s, char c)
 {
 	int		count;
 	char	**str_list;
@@ -49,21 +55,11 @@ char	**ft_split(char const *s, char c)
 
 	count = get_substr_count(s, c);
 	str_list = malloc(sizeof(char *) * (count + 1));
-	if (*str_list == NULL)
+	if (str_list == NULL)
 		return (NULL);
 	i = 0;
 	while (i < count)
-		str_list[i++] = cut_str(&s, c);
+		str_list[i++] = cut_substr(&s, c);
 	str_list[i] = NULL;
 	return (str_list);
 }
-
-/*
-int main(void)
-{
-	char **list = ft_split("xxxayyyyyyazzzzz", 'a');
-	while (*list)
-		puts(*list++);
-	return 0;
-}
-*/
