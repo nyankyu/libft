@@ -1,26 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstnew.c                                        :+:      :+:    :+:   */
+/*   ft_lstmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nohtou <nohtou@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/07/03 15:52:46 by nohtou            #+#    #+#             */
-/*   Updated: 2020/07/03 16:05:21 by nohtou           ###   ########.fr       */
+/*   Created: 2020/07/03 21:44:52 by nohtou            #+#    #+#             */
+/*   Updated: 2020/07/03 23:25:21 by nohtou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include "libft.h"
 
-t_list	*ft_lstnew(void *content)
+t_list		*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
-	t_list	*new_list;
+	t_list	dummy_top;
+	t_list	*tail;
 
-	new_list = malloc(sizeof(t_list));
-	if (new_list == NULL)
-		return (NULL);
-	new_list->content = content;
-	new_list->next = NULL;
-	return (new_list);
+	dummy_top.next = NULL;
+	tail = &dummy_top;
+	while (lst)
+	{
+		tail->next = malloc(sizeof(t_list));
+		if (tail->next == NULL)
+		{
+			ft_lstclear(&dummy_top.next, del);
+			return (NULL);
+		}
+		tail = tail->next;
+		tail->content = f(lst->content);
+		tail->next = NULL;
+		lst = lst->next;
+	}
+	return (dummy_top.next);
 }
