@@ -29,10 +29,17 @@ ft_strjoin.c \
 ft_strtrim.c \
 ft_split.c \
 ft_strmapi.c \
-ft_itoa.c
+ft_itoa.c \
+ft_putchar_fd.c \
+ft_putstr_fd.c \
+ft_putendl_fd.c \
+ft_putnbr_fd.c
+BONUS_SRCS=\
+ft_lstnew.c
 OBJS=$(SRCS:.c=.o)
+BONUS_OBJS=$(BONUS_SRCS:.c=.o)
 
-.PHONY: all clean fclean re
+.PHONY: all clean fclean re bonus
 
 all: $(NAME)
 
@@ -43,9 +50,12 @@ $(NAME): $(OBJS)
 	gcc -Wall -Werror -Wextra -c $?
 
 clean:
-	rm -f $(OBJS)
+	rm -f $(OBJS) $(BONUS_OBJS)
 
 fclean: clean
 	rm -f $(NAME)
 
 re: fclean all
+
+bonus: $(BONUS_OBJS)
+	ar rcs $(NAME) $?
