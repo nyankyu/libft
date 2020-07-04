@@ -6,13 +6,14 @@
 /*   By: nohtou <nohtou@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/26 13:18:37 by nohtou            #+#    #+#             */
-/*   Updated: 2020/07/01 01:20:09 by nohtou           ###   ########.fr       */
+/*   Updated: 2020/07/05 03:25:45 by nohtou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <limits.h>
 #include <stddef.h>
-#include <stdio.h>
+#include <errno.h>
+#include "libft.h"
 
 static int	is_space(char c)
 {
@@ -20,72 +21,41 @@ static int	is_space(char c)
 			c == '\f' || c == '\r' || c == ' ');
 }
 
-static int	is_num(char c)
+static int	overflow(long n, char digit)
 {
-	return ('0' <= c && c <= '9');
-}
-
-static int	underflow(const char *str)
-{
-	char	*p;
-	char	*long_min;
-	size_t	len;
-
-	p = (char *)str;
-	long_min = "2147483648";
-	len = 0;
-	while (is_num(*p))
+	if (n > LONG_MAX / 10)
 	{
-		len++;
-		p++;
-	}
-	if (len > 10)
+		errno = ERANGE;
 		return (1);
-	else if (len < 10)
-		return (0);
-	while (is_num(*str) && len--)
-	{
-		if (*str > *long_min)
-			return (1);
-		str++;
-		long_min++;
 	}
+	if (n == LONG_MAX / 10)
+		if (n * 10 > LONG_MAX - (digit - '0'))
+		{
+			errno = ERANGE;
+			return (1);
+		}
 	return (0);
 }
 
-static int	overflow(const char *str)
+static int	underflow(long n, char digit)
 {
-	char	*p;
-	char	*long_max;
-	size_t	len;
-
-	p = (char *)str;
-	long_max = "2147483647";
-	len = 0;
-	while (is_num(*p))
+	if (n > -(LONG_MIN / 10))
 	{
-		len++;
-		p++;
-	}
-	if (len > 10)
+		errno = ERANGE;
 		return (1);
-	else if (len < 10)
-		return (0);
-	while ((*str == *long_max) && len)
-	{
-		str++;
-		long_max++;
-		len--;
 	}
-	if (*str > *long_max)
-		return (1);
-	else
-		return (0);
+	if (n == -(LONG_MIN / 10))
+		if (n * 10 > LONG_MIN - (digit - '0'))
+		{
+			errno = ERANGE;
+			return (1);
+		}
+	return (0);
 }
 
 int			ft_atoi(const char *str)
 {
-	int		ret;
+	long	ret;
 	int		neg;
 
 	ret = 0;
@@ -101,17 +71,13 @@ int			ft_atoi(const char *str)
 		str++;
 	while (*str == '0')
 		str++;
-	if (!neg && overflow(str))
+	while (ft_isdigit(*str))
 	{
-		return ((int)LONG_MAX);
-	}
-	if (neg && underflow(str))
-		return ((int)LONG_MIN);
-	while (is_num(*str))
-	{
-		ret *= 10;
-		ret += *str - '0';
-		str++;
+		if (neg && underflow(ret, *str))
+			return ((int)LONG_MIN);
+		if (!neg && overflow(ret, *str))
+			return ((int)LONG_MAX);
+		ret = ret * 10 + (*str++ - '0');
 	}
 	return (neg ? -ret : ret);
 }
