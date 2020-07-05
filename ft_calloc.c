@@ -6,12 +6,13 @@
 /*   By: nohtou <nohtou@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/26 18:25:48 by nohtou            #+#    #+#             */
-/*   Updated: 2020/07/01 22:45:34 by nohtou           ###   ########.fr       */
+/*   Updated: 2020/07/05 15:58:49 by nohtou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include <errno.h>
+#include "libft.h"
 
 void	*ft_calloc(size_t count, size_t size)
 {
@@ -27,7 +28,6 @@ void	*ft_calloc(size_t count, size_t size)
 	p = malloc(len);
 	if (p == NULL)
 		return (NULL);
-	while (len--)
-		p[len] = 0;
+	ft_memset(p, 0, len);
 	return (p);
 }
