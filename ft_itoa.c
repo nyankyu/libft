@@ -6,7 +6,7 @@
 /*   By: nohtou <nohtou@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/02 19:31:03 by nohtou            #+#    #+#             */
-/*   Updated: 2020/07/03 03:25:34 by nohtou           ###   ########.fr       */
+/*   Updated: 2020/07/06 03:12:47 by nohtou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,14 +34,13 @@ char	*ft_itoa(int a)
 	if (a < 0)
 	{
 		n = -(a + 1);
-		n--;
+		n++;
 		*p = '-';
-		a *= -1;
 		p++;
 	}
 	else
 		n = a;
-	set_digit(&p, a);
+	set_digit(&p, n);
 	*p = '\0';
 	return (ft_strdup(buff));
 }
