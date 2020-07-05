@@ -6,15 +6,11 @@
 /*   By: nohtou <nohtou@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/24 01:31:58 by nohtou            #+#    #+#             */
-/*   Updated: 2020/06/24 01:37:54 by nohtou           ###   ########.fr       */
+/*   Updated: 2020/07/06 00:42:23 by nohtou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 int		ft_isalpha(int c)
 {
-	if ('A' <= c && c <= 'Z')
-		return (1);
-	if ('a' <= c && c <= 'z')
-		return (1);
-	return (0);
+	return (('A' <= c && c <= 'Z') || ('a' <= c && c <= 'z'));
 }

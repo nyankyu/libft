@@ -6,7 +6,7 @@
 /*   By: nohtou <nohtou@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/24 01:44:48 by nohtou            #+#    #+#             */
-/*   Updated: 2020/07/05 19:52:24 by nohtou           ###   ########.fr       */
+/*   Updated: 2020/07/06 00:41:11 by nohtou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,5 @@
 
 int		ft_isalnum(int c)
 {
-	if (ft_isalpha(c))
-		return (1);
-	if (ft_isdigit(c))
-		return (1);
-	return (0);
+	return (ft_isalpha(c) || ft_isdigit(c));
 }
