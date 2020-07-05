@@ -6,7 +6,7 @@
 /*   By: nohtou <nohtou@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/26 18:25:48 by nohtou            #+#    #+#             */
-/*   Updated: 2020/07/05 15:58:49 by nohtou           ###   ########.fr       */
+/*   Updated: 2020/07/06 00:33:18 by nohtou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,6 @@ void	*ft_calloc(size_t count, size_t size)
 	p = malloc(len);
 	if (p == NULL)
 		return (NULL);
-	ft_memset(p, 0, len);
+	ft_bzero(p, len);
 	return (p);
 }
