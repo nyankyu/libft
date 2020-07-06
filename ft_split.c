@@ -6,7 +6,7 @@
 /*   By: nohtou <nohtou@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/30 00:01:20 by nohtou            #+#    #+#             */
-/*   Updated: 2020/07/01 01:02:23 by nohtou           ###   ########.fr       */
+/*   Updated: 2020/07/07 01:28:24 by nohtou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,19 +47,36 @@ static char	*cut_substr(const char **str_ptr, char c)
 	return (sub_str);
 }
 
+static void	free_list(char **str_list, int size)
+{
+	while (size--)
+		free(str_list[size]);
+	free(str_list);
+}
+
 char		**ft_split(char const *s, char c)
 {
 	int		count;
 	char	**str_list;
 	int		i;
 
+	if (s == NULL)
+		return (NULL);
 	count = get_substr_count(s, c);
 	str_list = malloc(sizeof(char *) * (count + 1));
 	if (str_list == NULL)
 		return (NULL);
 	i = 0;
 	while (i < count)
-		str_list[i++] = cut_substr(&s, c);
+	{
+		str_list[i] = cut_substr(&s, c);
+		if (str_list[i] == NULL)
+		{
+			free_list(str_list, i);
+			return (NULL);
+		}
+		i++;
+	}
 	str_list[i] = NULL;
 	return (str_list);
 }
