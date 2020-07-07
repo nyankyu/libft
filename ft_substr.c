@@ -6,7 +6,7 @@
 /*   By: nohtou <nohtou@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/28 11:39:46 by nohtou            #+#    #+#             */
-/*   Updated: 2020/06/29 23:37:47 by nohtou           ###   ########.fr       */
+/*   Updated: 2020/07/08 00:46:40 by nohtou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,14 +21,14 @@ char	*ft_substr(const char *s, unsigned int start, size_t len)
 	if (s == NULL)
 		return (NULL);
 	s_len = ft_strlen(s);
-	if (start > s_len)
+	if (s_len <= start)
 		return (ft_strdup(""));
 	if (s_len < start + len)
 		len = s_len - start;
 	cpy = malloc(len + 1);
 	if (cpy == NULL)
 		return (NULL);
-	s += start;
-	ft_strlcpy(cpy, s, len + 1);
+	ft_memcpy(cpy, s + start, len);
+	cpy[len] = '\0';
 	return (cpy);
 }

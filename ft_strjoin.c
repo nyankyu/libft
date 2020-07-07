@@ -6,7 +6,7 @@
 /*   By: nohtou <nohtou@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/29 22:43:46 by nohtou            #+#    #+#             */
-/*   Updated: 2020/06/29 23:04:05 by nohtou           ###   ########.fr       */
+/*   Updated: 2020/07/08 00:51:25 by nohtou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,8 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	join = malloc(s1_len + s2_len + 1);
 	if (join == NULL)
 		return (NULL);
-	ft_strlcpy(join, s1, s1_len + 1);
-	ft_strlcat(join, s2, s1_len + s2_len + 1);
+	ft_memcpy(join, s1, s1_len);
+	ft_memcpy(join + s1_len, s2, s2_len);
+	join[s1_len + s2_len] = '\0';
 	return (join);
 }

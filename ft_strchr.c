@@ -6,11 +6,11 @@
 /*   By: nohtou <nohtou@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/24 10:33:37 by nohtou            #+#    #+#             */
-/*   Updated: 2020/06/24 11:14:43 by nohtou           ###   ########.fr       */
+/*   Updated: 2020/07/07 15:09:50 by nohtou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
+#include <stddef.h>
 
 char	*ft_strchr(const char *s, int c)
 {

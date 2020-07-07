@@ -6,7 +6,7 @@
 /*   By: nohtou <nohtou@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/30 00:01:20 by nohtou            #+#    #+#             */
-/*   Updated: 2020/07/07 01:28:24 by nohtou           ###   ########.fr       */
+/*   Updated: 2020/07/08 01:00:31 by nohtou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,8 @@ static char	*cut_substr(const char **str_ptr, char c)
 	sub_str = malloc(*str_ptr - start + 1);
 	if (sub_str == NULL)
 		return (NULL);
-	ft_strlcpy(sub_str, start, *str_ptr - start + 1);
+	ft_memcpy(sub_str, start, *str_ptr - start);
+	sub_str[*str_ptr - start] = '\0';
 	return (sub_str);
 }
 
