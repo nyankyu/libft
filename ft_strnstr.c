@@ -6,7 +6,7 @@
 /*   By: nohtou <nohtou@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/25 23:01:32 by nohtou            #+#    #+#             */
-/*   Updated: 2020/06/26 03:38:53 by nohtou           ###   ########.fr       */
+/*   Updated: 2020/07/09 00:54:18 by nohtou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,15 +47,10 @@ char		*ft_strnstr(const char *haystack, const char *needle, size_t len)
 		return ((char *)haystack);
 	if (!*haystack)
 		return (NULL);
-	while (*haystack && len)
-	{
-		initial = find_initial(haystack, *needle, &len);
-		if (initial == NULL)
-			return (NULL);
-		if (same_head(initial, needle, len))
-			return ((char *)initial);
-		haystack++;
-		len--;
-	}
+	initial = find_initial(haystack, *needle, &len);
+	if (initial == NULL)
+		return (NULL);
+	if (same_head(initial, needle, len))
+		return ((char *)initial);
 	return (NULL);
 }
