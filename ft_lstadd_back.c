@@ -6,7 +6,7 @@
 /*   By: nohtou <nohtou@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/03 17:19:04 by nohtou            #+#    #+#             */
-/*   Updated: 2020/07/14 21:00:14 by nohtou           ###   ########.fr       */
+/*   Updated: 2020/07/14 23:54:53 by nohtou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,11 @@
 
 void	ft_lstadd_back(t_list **lst, t_list *new)
 {
-	t_list *current;
+	t_list	*last;
 
-	new->next = NULL;
-	if (*lst == NULL)
-	{
+	last = ft_lstlast(*lst);
+	if (last == NULL)
 		*lst = new;
-		return ;
-	}
-	current = *lst;
-	while (current->next)
-		current = current->next;
-	current->next = new;
+	else
+		last->next = new;
 }
