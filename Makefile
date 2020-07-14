@@ -1,3 +1,5 @@
+CFLAGS=-Wall -Werror -Wextra
+CC=gcc
 NAME=libft.a
 SRCS=\
 ft_atoi.c \
@@ -46,16 +48,18 @@ ft_lstiter.c \
 ft_lstmap.c
 OBJS=$(SRCS:.c=.o)
 BONUS_OBJS=$(BONUS_SRCS:.c=.o)
+ifdef WITH_BONUS
+	OBJ_FILES = $(OBJS) $(BONUS_OBJS)
+else
+	OBJ_FILES = $(OBJS)
+endif
 
-.PHONY: all clean fclean re bonus
+.PHONY:all clean fclean re bonus
 
-all: $(NAME)
+all:$(NAME)
 
-$(NAME): $(OBJS)
+$(NAME):$(OBJ_FILES)
 	ar rcs $@ $?
-
-.c.o:
-	gcc -Wall -Werror -Wextra -c $?
 
 clean:
 	rm -f $(OBJS) $(BONUS_OBJS)
@@ -65,5 +69,7 @@ fclean: clean
 
 re: fclean all
 
-bonus: $(BONUS_OBJS)
-	ar rcs $(NAME) $?
+bonus:
+	sleep 1
+	$(MAKE) WITH_BONUS=1 all
+
