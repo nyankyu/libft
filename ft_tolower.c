@@ -6,11 +6,11 @@
 /*   By: nohtou <nohtou@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/24 02:11:14 by nohtou            #+#    #+#             */
-/*   Updated: 2020/06/24 22:02:44 by nohtou           ###   ########.fr       */
+/*   Updated: 2021/04/23 06:36:59 by nohtou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_tolower(int c)
+int	ft_tolower(int c)
 {
 	if ('A' <= c && c <= 'Z')
 		c += 32;

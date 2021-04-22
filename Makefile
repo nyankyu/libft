@@ -35,8 +35,7 @@ ft_itoa.c \
 ft_putchar_fd.c \
 ft_putstr_fd.c \
 ft_putendl_fd.c \
-ft_putnbr_fd.c
-BONUS_SRCS=\
+ft_putnbr_fd.c \
 ft_lstnew.c \
 ft_lstadd_front.c \
 ft_lstsize.c \
@@ -47,29 +46,21 @@ ft_lstclear.c \
 ft_lstiter.c \
 ft_lstmap.c
 OBJS=$(SRCS:.c=.o)
-BONUS_OBJS=$(BONUS_SRCS:.c=.o)
-ifdef WITH_BONUS
-	OBJ_FILES = $(OBJS) $(BONUS_OBJS)
-else
-	OBJ_FILES = $(OBJS)
-endif
 
-.PHONY:all clean fclean re bonus
+.PHONY:all clean fclean re norm
 
 all:$(NAME)
 
-$(NAME):$(OBJ_FILES)
+$(NAME):$(OBJS)
 	ar rcs $@ $?
 
 clean:
-	rm -f $(OBJS) $(BONUS_OBJS)
+	rm -f $(OBJS)
 
 fclean: clean
 	rm -f $(NAME)
 
 re: fclean all
 
-bonus:
-	sleep 1
-	$(MAKE) WITH_BONUS=1 all
-
+norm:
+	norminette

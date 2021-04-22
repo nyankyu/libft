@@ -6,13 +6,13 @@
 /*   By: nohtou <nohtou@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/25 23:01:32 by nohtou            #+#    #+#             */
-/*   Updated: 2020/07/09 00:54:18 by nohtou           ###   ########.fr       */
+/*   Updated: 2021/04/23 07:15:42 by nohtou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stddef.h>
 
-int			same_head(const char *s1, const char *s2, size_t rem)
+int	same_head(const char *s1, const char *s2, size_t rem)
 {
 	while (*s2)
 	{
@@ -39,7 +39,7 @@ const char	*find_initial(const char *str, char c, size_t *len)
 	return (NULL);
 }
 
-char		*ft_strnstr(const char *haystack, const char *needle, size_t len)
+char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 {
 	const char	*initial;
 

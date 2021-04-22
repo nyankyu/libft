@@ -6,13 +6,13 @@
 /*   By: nohtou <nohtou@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/24 11:49:36 by nohtou            #+#    #+#             */
-/*   Updated: 2020/06/24 14:07:02 by nohtou           ###   ########.fr       */
+/*   Updated: 2021/04/23 06:55:41 by nohtou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stddef.h>
 
-int		ft_strncmp(const char *s1, const char *s2, size_t n)
+int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
 	while (n--)
 	{

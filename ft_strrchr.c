@@ -6,7 +6,7 @@
 /*   By: nohtou <nohtou@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/24 11:15:16 by nohtou            #+#    #+#             */
-/*   Updated: 2020/06/24 11:47:04 by nohtou           ###   ########.fr       */
+/*   Updated: 2021/04/23 07:00:04 by nohtou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 char	*ft_strrchr(const char *s, int c)
 {
-	char *last;
+	char	*last;
 
 	last = NULL;
 	while (*s)

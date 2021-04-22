@@ -6,14 +6,14 @@
 /*   By: nohtou <nohtou@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/03 21:44:52 by nohtou            #+#    #+#             */
-/*   Updated: 2020/07/15 01:33:14 by nohtou           ###   ########.fr       */
+/*   Updated: 2021/04/23 07:02:13 by nohtou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include "libft.h"
 
-t_list		*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
+t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
 	t_list	dummy_top;
 	t_list	*tail;

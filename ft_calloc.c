@@ -6,7 +6,7 @@
 /*   By: nohtou <nohtou@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/26 18:25:48 by nohtou            #+#    #+#             */
-/*   Updated: 2020/07/06 00:33:18 by nohtou           ###   ########.fr       */
+/*   Updated: 2021/04/23 06:40:19 by nohtou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	*ft_calloc(size_t count, size_t size)
 	char	*p;
 	size_t	len;
 
-	if (count && size > ((size_t)-1) / count)
+	if (count && size > ((size_t) - 1) / count)
 	{
 		errno = ENOMEM;
 		return (NULL);

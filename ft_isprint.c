@@ -6,11 +6,11 @@
 /*   By: nohtou <nohtou@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/24 01:54:52 by nohtou            #+#    #+#             */
-/*   Updated: 2020/07/06 01:38:27 by nohtou           ###   ########.fr       */
+/*   Updated: 2021/04/23 07:02:42 by nohtou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_isprint(int c)
+int	ft_isprint(int c)
 {
 	return (040 <= c && c <= 0176);
 }

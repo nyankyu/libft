@@ -6,7 +6,7 @@
 /*   By: nohtou <nohtou@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/30 00:01:20 by nohtou            #+#    #+#             */
-/*   Updated: 2020/07/08 01:00:31 by nohtou           ###   ########.fr       */
+/*   Updated: 2021/04/23 07:18:08 by nohtou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,10 @@ static int	get_substr_count(const char *str, char c)
 
 	count = 0;
 	while (*str++)
-		if (is_delimiter(*str, c) &&
-				!is_delimiter(*(str - 1), c))
+	{
+		if (is_delimiter(*str, c) && !is_delimiter(*(str - 1), c))
 			count++;
+	}
 	return (count);
 }
 
@@ -55,7 +56,7 @@ static void	free_list(char **str_list, int size)
 	free(str_list);
 }
 
-char		**ft_split(char const *s, char c)
+char	**ft_split(char const *s, char c)
 {
 	int		count;
 	char	**str_list;

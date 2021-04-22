@@ -6,7 +6,7 @@
 /*   By: nohtou <nohtou@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/24 22:04:40 by nohtou            #+#    #+#             */
-/*   Updated: 2020/07/07 20:30:55 by nohtou           ###   ########.fr       */
+/*   Updated: 2021/04/23 06:43:01 by nohtou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,9 @@
 
 size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 {
-	size_t slen;
-	size_t dlen;
-	size_t cpy_size;
+	size_t	slen;
+	size_t	dlen;
+	size_t	cpy_size;
 
 	slen = ft_strlen(src);
 	dlen = ft_strlen(dst);

@@ -6,7 +6,7 @@
 /*   By: nohtou <nohtou@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/26 13:18:37 by nohtou            #+#    #+#             */
-/*   Updated: 2021/04/23 05:27:47 by nohtou           ###   ########.fr       */
+/*   Updated: 2021/04/23 06:29:11 by nohtou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,8 +68,8 @@ int	ft_atoi(const char *str)
 	sign = 1;
 	if (*str == '-')
 		sign = -1;
-	if (*str == '+')
-		sign = 1;
+	if (*str == '-' || *str == '+')
+		str++;
 	ret = 0;
 	conv = 0;
 	while (ft_isdigit(*str))
@@ -84,5 +84,4 @@ int	ft_atoi(const char *str)
 	if (!conv)
 		errno = EINVAL;
 	return (sign * ret);
-
 }
