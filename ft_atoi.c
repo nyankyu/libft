@@ -6,7 +6,7 @@
 /*   By: nohtou <nohtou@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/26 13:18:37 by nohtou            #+#    #+#             */
-/*   Updated: 2020/07/05 16:30:01 by nohtou           ###   ########.fr       */
+/*   Updated: 2021/04/23 05:27:47 by nohtou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@
 
 static int	is_space(char c)
 {
-	return (c == '\t' || c == '\n' || c == '\v' ||
-			c == '\f' || c == '\r' || c == ' ');
+	return (c == '\t' || c == '\n' || c == '\v' || c == '\f'
+		|| c == '\r' || c == ' ');
 }
 
 static int	overflow(long n, char digit)
@@ -29,11 +29,13 @@ static int	overflow(long n, char digit)
 		return (1);
 	}
 	if (n == LONG_MAX / 10)
+	{
 		if (n * 10 > LONG_MAX - (digit - '0'))
 		{
 			errno = ERANGE;
 			return (1);
 		}
+	}
 	return (0);
 }
 
@@ -45,37 +47,42 @@ static int	underflow(long n, char digit)
 		return (1);
 	}
 	if (n == -(LONG_MIN / 10))
+	{
 		if (n * 10 > LONG_MIN - (digit - '0'))
 		{
 			errno = ERANGE;
 			return (1);
 		}
+	}
 	return (0);
 }
 
-int			ft_atoi(const char *str)
+int	ft_atoi(const char *str)
 {
 	long	ret;
-	int		neg;
 	int		conv;
+	int		sign;
 
-	ret = 0;
-	neg = 0;
-	conv = 0;
 	while (is_space(*str))
 		str++;
-	if (*str == '-' || *str == '+')
-		neg = *str++ == '-' ? 1 : 0;
+	sign = 1;
+	if (*str == '-')
+		sign = -1;
+	if (*str == '+')
+		sign = 1;
+	ret = 0;
+	conv = 0;
 	while (ft_isdigit(*str))
 	{
 		conv = 1;
-		if (neg && underflow(ret, *str))
+		if ((sign == -1) && underflow(ret, *str))
 			return ((int)LONG_MIN);
-		if (!neg && overflow(ret, *str))
+		if ((sign == 1) && overflow(ret, *str))
 			return ((int)LONG_MAX);
 		ret = ret * 10 + (*str++ - '0');
 	}
 	if (!conv)
 		errno = EINVAL;
-	return (neg ? -ret : ret);
+	return (sign * ret);
+
 }
